@@ -1,0 +1,182 @@
+﻿/* --- Layout --- */
+body {
+  background-color: #111;
+  color: #f1f1f1;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.top-menu {
+  text-transform: uppercase;
+  font-weight: 100;
+  display: flex;
+  box-sizing: border-box;
+  height: 10vh;
+
+  .top-menu-main {
+    flex-grow: 1;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    padding: 1.2em 1em;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.2;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+.flag {
+  position: absolute;
+  top: 0;
+  left: 42%;
+  text-align: center;
+  z-index: 500;
+}
+
+.page {
+  background-color: white;
+  max-width: 968px;
+  padding: 5em 2em 2em;     // Original =  padding: 4em 2em 2em;
+  margin: 0 auto;
+  color: #222;
+
+  h1 {
+    margin: 0 0 .75em;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+}
+
+/* --- Home --- */
+.banner {
+    background-image: url("Images/banner.jpg");
+    background-size: cover;       
+    background-position: 50% 50%;
+    height: 90vh;
+
+  h2 {
+    padding-top: 20%;
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 3em;
+    opacity: 0.85;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.75);
+  }
+
+  h3{
+    margin-top: 7em;
+    padding: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3em;
+    opacity: 0.85;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.75);
+
+    a{
+      text-decoration: none;
+      color: #f1f1f1;
+      opacity: 0.85;
+
+      &:hover {
+        //opacity: 0.2;
+        color: #858585;
+        transition: opacity 0.2s;
+      }
+    }
+  }
+}
+
+p{
+  a{
+    text-decoration: none;
+    color: #222;
+
+    &:hover {
+      color: #858585;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+/* --- Contact --- */
+.contacto{
+  display: flex;
+
+  .form{
+    text-align: left;
+
+    label {
+      display: block;
+      padding: 0.2em 0;
+      text-align: left;
+      width: 300px;
+      margin: auto;
+    }
+
+    input {
+      box-sizing: border-box;
+      margin-bottom: 1em;
+      width: 300px;
+      padding: 0.25em;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    input[type=submit] {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  .information{
+    margin-top: 0;
+    text-align: center;
+    margin-left: 20em;
+  }
+}
+
+/* --- Users --- */
+.centered-form {
+  text-align: center;
+  padding-bottom: 3em;
+
+  h1 {
+    margin-top: 2em;
+  }
+
+  label {
+    display: block;
+    padding: 0.2em 0;
+    text-align: left;
+    width: 300px;
+    margin: auto;
+  }
+
+  input {
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    width: 300px;
+    padding: 0.25em;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  input[type=submit] {
+    display: block;
+    margin: auto;
+  }
+}

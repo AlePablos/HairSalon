@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Peluqueria3.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page">
+    <h2>User List</h2>
+    
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Sex
+            </th>
+            <th>
+                Email
+            </th>            
+            <th>
+                Is Admin?
+            </th>
+            <th>
+                Last Logged
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                   @if (item.sex == true)
+                   {
+                       <td>
+                            Male
+                       </td>
+                   } else
+                   {
+                       <td>
+                            Female
+                       </td>                      
+                   }                   
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.isAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastLogged)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                    Resetear Contraseña
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

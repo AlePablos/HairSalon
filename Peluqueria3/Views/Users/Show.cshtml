@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<div class="page">
+
+    @if (true)
+    {              <!-- current_user.isAdmin = true-->
+        @Html.Partial("_AdminPanel")
+    }
+    else
+    {
+        @Html.Partial("user_Panel")
+    }
+
+
+
+
+</div>

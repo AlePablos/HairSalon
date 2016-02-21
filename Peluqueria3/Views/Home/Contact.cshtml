@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="page">
+    <h1>Contacto</h1>
+    <div class="contacto">
+
+
+        <form class="form" action="~/Home/Sent" method="get">
+            <label>Nombre</label>
+            <input class="name" name="nombre" type="text" required />
+            <label>Email</label>
+            <input type="email" class="email" name="email" required />
+            <label>Mensaje</label>
+            <textarea rows="10" cols="35" name="comentarios" required>Escriba aquí sus consultas</textarea>
+
+            <input name="enviar" type="submit" value="Enviar" />
+        </form>
+
+        <div class="information">
+            <h3>Encontranos en:</h3>
+            <p>Calle Alem 123.</p>
+            <p>Telefono: 0291-15560646.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "AdminPanel";
+}
+
+<h1>Panel de Control</h1>
+<ul>
+    <li>
+        @Html.ActionLink("Gestionar Items de Trabajo", "Index", "WorkItems", routeValues: null, htmlAttributes: null)
+    </li>
+    <li>
+        @Html.ActionLink("Gestionar Turnos", "Index", "Appointments", routeValues: null, htmlAttributes: null)
+    </li>
+    <li>
+        <%= link_to 'Sacar Turno', new_appointment_path %>
+    </li>
+    <li>
+        @Html.ActionLink("Gestionar Usuarios", "Index", "Users", routeValues: null, htmlAttributes: null)
+    </li>
+    <li>
+        <%= link_to 'Editar Perfil', edit_user_path(current_user) %>
+    </li>
+</ul>
+
+<h2>Cosas para hoy</h2>
+
+<% Appointment.todays_appointments.each do |appointment| %>
+  <%= render 'shared/appointment', appointment: appointment %>
+<hr>
+<% end %>
+
+

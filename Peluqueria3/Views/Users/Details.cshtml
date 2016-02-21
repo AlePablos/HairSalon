@@ -1,0 +1,84 @@
+﻿@model Peluqueria3.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page">
+    <h2>Details</h2>
+
+    <div>       
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                First Name
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.firstName)
+            </dd>
+
+            <dt>
+                Last Name
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lastName)
+            </dd>
+
+            <dt>
+                Phone
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+
+            <dt>
+                Sex
+            </dt>
+            @if (Model.sex == true)
+            {
+                <dd>
+                    Male
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    Female
+                </dd>
+            }
+
+
+            <dt>
+                Email
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.isAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.isAdmin)
+            </dd>
+
+            <dt>
+                Last Logged
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lastLogged)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", "Users", routeValues: new { id = Model.ID }, htmlAttributes: null) |
+        @Html.ActionLink("Back to List", "Index","Users", routeValues: null, htmlAttributes: null)
+    </p>
+</div>

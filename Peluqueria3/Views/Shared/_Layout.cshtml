@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluqueria</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,900' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div class="flag">
+        <a href="/"><img src="~/Content/Images/hair-salon.png" /></a>
+    </div>
+
+    <header class="top-menu">
+        <ul class="top-menu-main">
+            <li><a href="/">Index</a></li>
+            <li><a href="/Home/About">About</a></li>
+            <li><a href="/Home/Contact">Contact</a></li>
+        </ul>
+
+        <ul class="top-menu-user">
+            <!--    <% if current_user.nil? %>
+                 <li><%= link_to 'Iniciar Sesión', login_path %></li>
+                 <li><%= link_to 'Registrarse', signup_path %></li>            -->
+
+            <li>Welcome @Html.ActionLink("Ale", "Show", "Users", routeValues: null, htmlAttributes: null)!</li>
+            <li><a href="/">Log Out</a></li>
+
+
+        </ul>
+    </header>
+
+    @RenderBody()
+
+</body>
+</html>
