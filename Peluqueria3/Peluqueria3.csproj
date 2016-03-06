@@ -212,6 +212,18 @@
     <Compile Include="Migrations\201602210619316_Relationships.Designer.cs">
       <DependentUpon>201602210619316_Relationships.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603061824206_DisplayNameAppointmentVariable.cs" />
+    <Compile Include="Migrations\201603061824206_DisplayNameAppointmentVariable.Designer.cs">
+      <DependentUpon>201603061824206_DisplayNameAppointmentVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603061831321_DisplayNameAppointmentAllVariable.cs" />
+    <Compile Include="Migrations\201603061831321_DisplayNameAppointmentAllVariable.Designer.cs">
+      <DependentUpon>201603061831321_DisplayNameAppointmentAllVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603061949359_WorkItemDisplayName.cs" />
+    <Compile Include="Migrations\201603061949359_WorkItemDisplayName.Designer.cs">
+      <DependentUpon>201603061949359_WorkItemDisplayName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -327,6 +339,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602210619316_Relationships.resx">
       <DependentUpon>201602210619316_Relationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603061824206_DisplayNameAppointmentVariable.resx">
+      <DependentUpon>201603061824206_DisplayNameAppointmentVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603061831321_DisplayNameAppointmentAllVariable.resx">
+      <DependentUpon>201603061831321_DisplayNameAppointmentAllVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603061949359_WorkItemDisplayName.resx">
+      <DependentUpon>201603061949359_WorkItemDisplayName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
