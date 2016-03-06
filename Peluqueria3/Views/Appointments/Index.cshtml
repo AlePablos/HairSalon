@@ -16,6 +16,9 @@
                 Name
             </th>
             <th>
+                Date
+            </th>
+            <th>
                 Start time
             </th>
             <th>
@@ -28,13 +31,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.User.firstName)
+                    @item.User.firstName
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.startTime)
+                    @item.startTime.ToShortDateString()
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.endTime)
+                    @item.startTime.TimeOfDay
+                </td>
+                <td>
+                    @item.endTime.TimeOfDay
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
@@ -45,4 +51,5 @@
         }
 
     </table>
+    @Html.ActionLink("Back to menu", "Show", "Users", routeValues: null, htmlAttributes: null)
 </div>

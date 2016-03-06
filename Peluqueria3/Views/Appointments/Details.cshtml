@@ -3,75 +3,84 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="page">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>Appointment</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Name
+            </dt>
 
-<div>
-    <h4>Appointment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Name
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User.firstName)
+            </dd>
+            <dt>
+                Date
+            </dt>
+            <dd>
+               @Model.startTime.ToShortDateString()
+            </dd>
+            <dt>
+                Start time
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.firstName)
-        </dd>
+            <dd>
+                @Model.startTime.ToShortTimeString()
+            </dd>
 
-        <dt>
-            Start time
-        </dt>
+            <dt>
+                End time
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.startTime)
-        </dd>
+            <dd>
+                @Model.endTime.ToShortTimeString()
+            </dd>
 
-        <dt>
-            End time
-        </dt>
+            <dt>
+                Work item
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.endTime)
-        </dd>
-
-        <dt>
-            Work item
-        </dt>
-
-        <dd>
-            <table class="table">
-                <tr>
-                    <th>
-                        Description
-                    </th>
-                    <th>
-                        Price
-                    </th>
-                    <th>
-                        Duration
-                    </th>
-                    
-                </tr>
-
-                @foreach (var item in ViewBag.workItemList)
-                {
+            <dd>
+                <table class="table">
                     <tr>
-                        <td>
-                            @item.name
-                        </td>
-                        <td>
-                           $ @item.price
-                        </td>
-                        <td>
-                            @item.duration min
-                        </td>                        
-                    </tr>
-                }
-</dd>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Duration
+                        </th>
 
-    </dl>
+                    </tr>
+
+                    @foreach (var item in ViewBag.workItemList)
+                    {
+                        <tr>
+                            <td>
+                                @item.name
+                            </td>
+                            <td>
+                                $ @item.price
+                            </td>
+                            <td>
+                                @item.duration min
+                            </td>
+                        </tr>
+                    }
+                    </table>
+            </dd>
+
+        </dl>
+    </div>
+       <p>
+           @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+           @Html.ActionLink("Back to List", "Index")
+       </p>
+   
+   
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

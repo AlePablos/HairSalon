@@ -23,9 +23,45 @@
 
 <h2>Cosas para hoy</h2>
 
-<% Appointment.todays_appointments.each do |appointment| %>
-  <%= render 'shared/appointment', appointment: appointment %>
-<hr>
-<% end %>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+            End Time
+        </th>
+       
+        <th></th>
+    </tr>
+    
+    @foreach (var item in ViewBag.ListTodayTask)
+    {
+        <tr>
+            <td>
+                @item.User.firstName
+            </td>
+            <td>
+                @item.startTime
+            </td>
+            <td>
+                @item.endTime
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+           
+        </tr>
+    }
+
+</table>
+
+        
+
 
 

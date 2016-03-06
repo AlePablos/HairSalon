@@ -22,7 +22,14 @@ namespace Peluqueria3.Controllers
 
         // GET: Users
         public ActionResult Show()
-        {
+        {           
+            DateTime today = DateTime.Today;
+            DateTime tomorrow = today.AddDays(1);
+
+            ViewBag.ListTodayTask = (from task in db.Appointments
+                      where (task.startTime >= today) && (task.startTime < tomorrow)
+                      select task).ToList();           
+
             return View();
         }
 
@@ -39,7 +46,7 @@ namespace Peluqueria3.Controllers
                 return HttpNotFound();
             }
             return View(user);
-        }
+        }        
 
         // GET: Users/Create
         public ActionResult Create()
