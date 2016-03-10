@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201603061949359_WorkItemDisplayName.Designer.cs">
       <DependentUpon>201603061949359_WorkItemDisplayName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603100012186_UserDisplayName.cs" />
+    <Compile Include="Migrations\201603100012186_UserDisplayName.Designer.cs">
+      <DependentUpon>201603100012186_UserDisplayName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -348,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603061949359_WorkItemDisplayName.resx">
       <DependentUpon>201603061949359_WorkItemDisplayName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100012186_UserDisplayName.resx">
+      <DependentUpon>201603100012186_UserDisplayName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

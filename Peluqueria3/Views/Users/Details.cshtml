@@ -37,19 +37,16 @@
             <dt>
                 Sex
             </dt>
+            <dd>
             @if (Model.sex == true)
             {
-                <dd>
-                    Male
-                </dd>
+                @: Male
             }
             else
             {
-                <dd>
-                    Female
-                </dd>
+                @: Female
             }
-
+            </dd>
 
             <dt>
                 Email
@@ -64,7 +61,14 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.isAdmin)
+                @if (Model.isAdmin)
+                {
+                    @: Yes
+                }
+                else
+                {
+                    @: No
+                }
             </dd>
 
             <dt>
