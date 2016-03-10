@@ -45,23 +45,28 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.phone)
                 </td>
-                   @if (item.sex == true)
-                   {
-                       <td>
-                            Male
-                       </td>
-                   } else
-                   {
-                       <td>
-                            Female
-                       </td>                      
-                   }                   
-                
+                <td>
+                    @if (@item.sex)
+                    {
+                        @: Male
+                   }
+                    else
+                    {
+                        @: Female
+                   }
+                </td>            
                 <td>
                     @Html.DisplayFor(modelItem => item.email)
                 </td>                
                 <td>
-                    @Html.DisplayFor(modelItem => item.isAdmin)
+                    @if (@item.isAdmin)
+                    {
+                        @: Yes
+                    }
+                    else
+                    {
+                        @: No
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.lastLogged)
@@ -70,12 +75,12 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                    Resetear Contraseña
+                    Reset Password
                 </td>
             </tr>
         }
 
     </table>
 
-    @Html.ActionLink("Back to menu", "Show", "User", routeValues: null, htmlAttributes: null)
+    @Html.ActionLink("Back to menu", "Show", "Users", routeValues: null, htmlAttributes: null)
 </div>

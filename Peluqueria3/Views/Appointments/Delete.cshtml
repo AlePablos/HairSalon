@@ -4,45 +4,56 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="page">
+    <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Appointment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.firstName)
-        </dt>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Appointment</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Name
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.firstName)
-        </dd>
+            <dd>
+                @Model.User.firstName
+            </dd>
+            
+            <dt>
+               Date
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.startTime)
-        </dt>
+            <dd>
+                @Model.startTime.DayOfWeek
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.startTime)
-        </dd>
+            <dt>
+                Start Time
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.endTime)
-        </dt>
+            <dd>
+                @Model.startTime.TimeOfDay
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.endTime)
-        </dd>
+            <dt>
+                End Time
+            </dt>
 
-    </dl>
+            <dd>
+                @Model.endTime.TimeOfDay
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>

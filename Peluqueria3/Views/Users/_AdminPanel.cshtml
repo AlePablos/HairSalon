@@ -27,6 +27,9 @@
             Name
         </th>
         <th>
+            Date
+        </th>
+        <th>
             Start Time
         </th>
         <th>
@@ -43,10 +46,13 @@
                 @item.User.firstName
             </td>
             <td>
-                @item.startTime
+                @item.startTime.DayOfWeek
             </td>
             <td>
-                @item.endTime
+                @item.startTime.TimeOfDay
+            </td>
+            <td>
+                @item.endTime.TimeOfDay
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
