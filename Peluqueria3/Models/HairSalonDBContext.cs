@@ -11,6 +11,19 @@ namespace Peluqueria3.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<WorkItem> WorkItems { get; set; }
-        public DbSet<Appointment_WorkItem> Appointments_WorkItems { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Appointment>()
+                        .HasMany<WorkItem>(s => s.workItems)
+                        .WithMany(c => c.appointments)
+                        .Map(cs =>
+                        {
+                            cs.MapLeftKey("AppointmentRefId");
+                            cs.MapRightKey("WorkItemRefId");
+                            cs.ToTable("WorkItemAppointments");
+                        });
+
+        }
     }
 }

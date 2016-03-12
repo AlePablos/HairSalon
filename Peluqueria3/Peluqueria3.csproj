@@ -233,10 +233,17 @@
     <Compile Include="Migrations\201603112225165_AppointmentWorkItems.Designer.cs">
       <DependentUpon>201603112225165_AppointmentWorkItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603122224079_appointments-workitems.cs" />
+    <Compile Include="Migrations\201603122224079_appointments-workitems.Designer.cs">
+      <DependentUpon>201603122224079_appointments-workitems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603122230445_update-relationship.cs" />
+    <Compile Include="Migrations\201603122230445_update-relationship.Designer.cs">
+      <DependentUpon>201603122230445_update-relationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
-    <Compile Include="Models\Appointment_WorkItem.cs" />
     <Compile Include="Models\HairSalonDBContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -364,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603112225165_AppointmentWorkItems.resx">
       <DependentUpon>201603112225165_AppointmentWorkItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603122224079_appointments-workitems.resx">
+      <DependentUpon>201603122224079_appointments-workitems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603122230445_update-relationship.resx">
+      <DependentUpon>201603122230445_update-relationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
