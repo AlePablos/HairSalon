@@ -35,9 +35,6 @@ namespace Peluqueria3.Controllers
                 return HttpNotFound();
             }
 
-            var workItems = appointment.workItems;
-
-            ViewBag.workItemList = workItems;
             return View(appointment);
         }
 
