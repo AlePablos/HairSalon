@@ -23,14 +23,17 @@
         </ul>
 
         <ul class="top-menu-user">
-            <!--    <% if current_user.nil? %>
-                 <li><%= link_to 'Iniciar Sesión', login_path %></li>
-                 <li><%= link_to 'Registrarse', signup_path %></li>            -->
+            @if (ViewBag.currentUser == null)
+            {
+                <li>@Html.ActionLink("Log In", "Create", "Sessions", routeValues: null, htmlAttributes: null)</li>
+                <li>@Html.ActionLink("Register", "Create", "Users", routeValues: null, htmlAttributes: null)</li>
 
-            <li>Welcome @Html.ActionLink("Ale", "Show", "Users", routeValues: null, htmlAttributes: null)!</li>
-            <li><a href="/">Log Out</a></li>
-
-
+            }
+            else
+            {
+                <li>Welcome @Html.ActionLink((ViewBag.currentUser as Peluqueria3.Models.User).firstName, "Show", "Users", routeValues: null, htmlAttributes: null)!</li>
+                <li>@Html.ActionLink("Log Out", "Delete", "Sessions", routeValues: null, htmlAttributes: null)</li>
+            }
         </ul>
     </header>
 

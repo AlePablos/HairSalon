@@ -10,10 +10,8 @@ using Peluqueria3.Models;
 
 namespace Peluqueria3.Controllers
 {
-    public class WorkItemsController : Controller
+    public class WorkItemsController : BaseController
     {
-        private HairSalonDBContext db = new HairSalonDBContext();
-
         // GET: WorkItems
         public ActionResult Index()
         {

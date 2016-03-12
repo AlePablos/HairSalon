@@ -10,10 +10,8 @@ using Peluqueria3.Models;
 
 namespace Peluqueria3.Controllers
 {
-    public class AppointmentsController : Controller
+    public class AppointmentsController : BaseController
     {
-        private HairSalonDBContext db = new HairSalonDBContext();
-
         // GET: Appointments
         public ActionResult Index()
         {
@@ -140,5 +138,18 @@ namespace Peluqueria3.Controllers
             }
             base.Dispose(disposing);
         }
+    }
+
+    public class AppointmentWithWorkItems
+    {
+        public int id { get; set; }
+
+        public DateTime startTime { get; set; }
+
+        public DateTime endTime { get; set; }
+
+        public int user { get; set; }
+
+        public List<int?> workItems { get; set; }
     }
 }
