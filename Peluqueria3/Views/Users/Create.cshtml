@@ -1,12 +1,11 @@
 ﻿@model Peluqueria3.Models.User
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Register";
 }
 
 <div class="page">
     <h2>Create</h2>
-
 
     @using (Html.BeginForm())
     {
@@ -44,7 +43,10 @@
                 @Html.LabelFor(model => model.sex, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.sex)
+                        @Html.DropDownList("Sex",
+                           EnumHelper.GetSelectList(typeof(Peluqueria3.Models.Sex)),
+                           null,
+                           new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.sex, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -66,24 +68,6 @@
                 </div>
             </div>
 
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.isAdmin, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.isAdmin)
-                            @Html.ValidationMessageFor(model => model.isAdmin, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.lastLogged, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.lastLogged, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.lastLogged, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -95,8 +79,4 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-
-    @*@section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }*@
 </div>

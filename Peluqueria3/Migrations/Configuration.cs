@@ -35,7 +35,7 @@ namespace Peluqueria3.Migrations
                     firstName = "Alejandro",
                     lastName = "Pablos",
                     phone = "291 5034232",
-                    sex = true,
+                    sex = Models.Sex.Male,
                     email = "alepablos@gmail.com",
                     password = "root",
                     isAdmin = true,

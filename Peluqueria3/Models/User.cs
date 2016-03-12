@@ -24,7 +24,7 @@ namespace Peluqueria3.Models
         public String phone { get; set; }
 
         [DisplayName("Sex")]
-        public bool sex { get; set; }  //1: male  0: female
+        public Sex sex { get; set; }
 
         [Required(ErrorMessage = "The email address is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
@@ -44,6 +44,10 @@ namespace Peluqueria3.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Last logged")]
         public DateTime lastLogged { get; set; }
+    }
 
+    public enum Sex
+    {
+        Male = 1, Female = 2
     }
 }
