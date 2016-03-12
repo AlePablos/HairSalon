@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\AppointmentWithWorkItems.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -227,6 +228,10 @@
     <Compile Include="Migrations\201603100012186_UserDisplayName.cs" />
     <Compile Include="Migrations\201603100012186_UserDisplayName.Designer.cs">
       <DependentUpon>201603100012186_UserDisplayName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603112225165_AppointmentWorkItems.cs" />
+    <Compile Include="Migrations\201603112225165_AppointmentWorkItems.Designer.cs">
+      <DependentUpon>201603112225165_AppointmentWorkItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -313,7 +318,6 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Appointments\Create.cshtml" />
     <Content Include="Views\Appointments\Delete.cshtml" />
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
@@ -325,6 +329,8 @@
     <Content Include="Views\WorkItems\Index.cshtml" />
     <Content Include="Views\Users\_AdminPanel.cshtml" />
     <Content Include="Views\Users\Show.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\_WorkItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603100012186_UserDisplayName.resx">
       <DependentUpon>201603100012186_UserDisplayName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603112225165_AppointmentWorkItems.resx">
+      <DependentUpon>201603112225165_AppointmentWorkItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

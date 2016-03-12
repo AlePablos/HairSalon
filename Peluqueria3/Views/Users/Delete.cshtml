@@ -57,26 +57,22 @@
 
             <dd>
                 @Html.DisplayFor(model => model.email)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.password)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.password)
-            </dd>
-
-            @if(@Model.isAdmin)
-            {
+            </dd>           
+            
             <dt>
                 @Html.DisplayNameFor(model => model.isAdmin)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.isAdmin)
-            </dd>
-            }            
+                @if (@Model.isAdmin)
+                {
+                    @: Yes
+                }
+                else
+                {
+                    @: No
+                }
+            </dd>                  
 
             <dt>
                 @Html.DisplayNameFor(model => model.lastLogged)

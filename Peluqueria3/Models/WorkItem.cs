@@ -20,5 +20,7 @@ namespace Peluqueria3.Models
 
         [DisplayName("Task Duration")]
         public int duration { get; set; }
+
+        public virtual ICollection<Appointment> appointments { get; set; }
     }
 }

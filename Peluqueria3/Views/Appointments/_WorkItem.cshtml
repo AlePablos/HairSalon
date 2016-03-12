@@ -1,0 +1,16 @@
+﻿@model Peluqueria3.Models.Appointment
+
+<ul>
+    @Html.Display("Work Item")
+    @foreach (var item in Model.workItems)
+    {
+        <li>
+            <input type="checkbox"
+                   name="workItems" value="@item.ID" id="@item.ID" />
+            @Html.Label(item.name)
+        </li>
+    }
+</ul>
+
+
+
