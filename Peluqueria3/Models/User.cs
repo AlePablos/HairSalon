@@ -11,6 +11,7 @@ namespace Peluqueria3.Models
     {
         public int ID { get; set; }
 
+        [Required(ErrorMessage = "The first name is required")]
         [StringLength(50)]
         [DisplayName("First name")]
         public String firstName { get; set; }
