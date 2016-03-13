@@ -6,7 +6,7 @@
 
 <div class="page">
     <h2>Edit</h2>
-
+    
 
     @using (Html.BeginForm())
     {
@@ -46,41 +46,47 @@
                 @Html.LabelFor(model => model.sex, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.sex)
+                        @Html.DropDownList("Sex",
+                           EnumHelper.GetSelectList(typeof(Peluqueria3.Models.Sex)),
+                           null,
+                           new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.sex, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-        </div>
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @if (ViewBag.currentUser.isAdmin == true)
+        {
+            @Html.ActionLink("Back to List", "Index", "Users", routeValues: null, htmlAttributes: null)
+        }
+        else
+        {
+            @Html.ActionLink("Back to List", "Show", "Users", routeValues: null, htmlAttributes: null)
+        }
     </div>
-
-    @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
 </div>

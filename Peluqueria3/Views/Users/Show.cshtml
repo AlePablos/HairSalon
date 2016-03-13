@@ -1,17 +1,16 @@
-﻿
-@{
-    ViewBag.Title = "Show";
+﻿@{
+    ViewBag.Title = "Control Panel";
 }
 
 <div class="page">
 
-    @if (true)
-    {              <!-- current_user.isAdmin = true-->
+    @if (ViewBag.currentUser.isAdmin == true)
+    {             
         @Html.Partial("_AdminPanel")
     }
     else
     {
-        @Html.Partial("user_Panel")
+        @Html.Partial("_UserPanel")
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using Peluqueria3.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,6 +27,9 @@ namespace Peluqueria3.Controllers
                 Session["currentUser"] = user;
             }
 
+            user.lastLogged = DateTime.Now;
+            db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 

@@ -53,16 +53,17 @@ namespace Peluqueria3.Controllers
 
             if (ModelState.IsValid)
             {                
-                appointment.startTime = appointmentWithWorkItem.startTime;
-                
-                //TODO calculate endtime and userID
-                appointment.endTime = appointmentWithWorkItem.startTime.AddHours(3);
-                appointment.userID = 3;
+                appointment.startTime = appointmentWithWorkItem.startTime;                
+                appointment.userID = currentUser.ID;
 
+                int time = 0;
                 appointment.workItems = new List<WorkItem>();
                 foreach(var wid in appointmentWithWorkItem.workItems) {
                     appointment.workItems.Add(db.WorkItems.Find(wid));
+                    time += appointment.workItems.LastOrDefault().duration;
                 }
+
+                appointment.endTime = appointment.startTime.AddMinutes(time);
 
                 db.Appointments.Add(appointment);
                 db.SaveChanges();

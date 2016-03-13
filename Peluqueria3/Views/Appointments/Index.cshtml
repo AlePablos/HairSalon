@@ -12,9 +12,13 @@
     </p>
     <table class="table">
         <tr>
-            <th>
-                Name
-            </th>
+            @if (ViewBag.currentUser.isAdmin == true)
+            {
+                <th>
+                    Name
+                </th>
+            }
+           
             <th>
                 Date
             </th>
@@ -30,9 +34,13 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @item.User.firstName
-                </td>
+                @if (ViewBag.currentUser.isAdmin == true)
+                {
+                    <td>
+                        @item.User.firstName
+                    </td>
+                }
+                
                 <td>
                     @item.startTime.ToShortDateString()
                 </td>
@@ -42,10 +50,13 @@
                 <td>
                     @item.endTime.TimeOfDay
                 </td>
-                <td>                    
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                <td> 
+                     @if (ViewBag.currentUser.isAdmin == true)
+                     {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) @: |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) @: |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                     }                   
                 </td>
             </tr>
         }

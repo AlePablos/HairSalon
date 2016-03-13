@@ -31,6 +31,12 @@ namespace Peluqueria3.Controllers
             return View();
         }
 
+        //GET
+        public ActionResult Congrats()
+        {
+            return View();
+        }
+
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
@@ -57,16 +63,18 @@ namespace Peluqueria3.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,firstName,lastName,phone,sex,email,password,isAdmin,lastLogged")] User user)
+        public ActionResult Create([Bind(Include = "ID,firstName,lastName,phone,sex,email,password")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.isAdmin = false;
+                user.lastLogged = null;
                 db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.SaveChanges();                
+                return RedirectToAction("Congrats", "Users");
             }
 
-            return View(user);
+            return View();
         }
 
         // GET: Users/Edit/5

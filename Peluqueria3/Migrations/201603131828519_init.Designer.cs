@@ -7,13 +7,13 @@ namespace Peluqueria3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DisplayNameAppointmentVariable : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DisplayNameAppointmentVariable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603061824206_DisplayNameAppointmentVariable"; }
+            get { return "201603131828519_init"; }
         }
         
         string IMigrationMetadata.Source

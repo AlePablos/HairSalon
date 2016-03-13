@@ -7,13 +7,13 @@ namespace Peluqueria3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class lastloggedNulleable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(lastloggedNulleable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201602022341116_Initial"; }
+            get { return "201603131832550_lastloggedNulleable"; }
         }
         
         string IMigrationMetadata.Source

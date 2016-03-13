@@ -1,8 +1,4 @@
-﻿@{
-    ViewBag.Title = "AdminPanel";
-}
-
-<h1>Panel de Control</h1>
+﻿<h1>Control Panel</h1>
 <ul>
     <li>
         @Html.ActionLink("Manage Work Item", "Index", "WorkItems", routeValues: null, htmlAttributes: null)
@@ -14,12 +10,11 @@
         @Html.ActionLink("Manage Users", "Index", "Users", routeValues: null, htmlAttributes: null)
     </li>
     <li>
-        Cambiar el route value por el usuario actual <br />
-        @Html.ActionLink("Edit Profile", "Edit", "Users", routeValues: new { id = 3 }, htmlAttributes: null)
+        @Html.ActionLink("Edit Profile", "Edit", "Users", routeValues: new { id = ViewBag.currentUser.ID }, htmlAttributes: null)
     </li>
 </ul>
 
-<h2>Cosas para hoy</h2>
+<h2>Appointment for today</h2>
 
 <table class="table">
     <tr>

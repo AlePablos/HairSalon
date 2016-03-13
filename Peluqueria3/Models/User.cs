@@ -44,7 +44,7 @@ namespace Peluqueria3.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DisplayName("Last logged")]
-        public DateTime lastLogged { get; set; }
+        public DateTime? lastLogged { get; set; }
     }
 
     public enum Sex

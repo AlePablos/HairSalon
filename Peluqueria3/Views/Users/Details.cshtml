@@ -38,7 +38,7 @@
                 Sex
             </dt>
             <dd>
-            @if (Model.sex == true)
+            @if (Model.sex == Peluqueria3.Models.Sex.Male)
             {
                 @: Male
             }
@@ -83,6 +83,6 @@
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", "Users", routeValues: new { id = Model.ID }, htmlAttributes: null) |
-        @Html.ActionLink("Back to List", "Index","Users", routeValues: null, htmlAttributes: null)
+        @Html.ActionLink("Back to List", "Index", "Users", routeValues: null, htmlAttributes: null)
     </p>
 </div>

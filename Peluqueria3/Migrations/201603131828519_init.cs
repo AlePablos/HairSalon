@@ -3,7 +3,7 @@ namespace Peluqueria3.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -25,25 +25,16 @@ namespace Peluqueria3.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        firstName = c.String(maxLength: 50),
+                        firstName = c.String(nullable: false, maxLength: 50),
                         lastName = c.String(maxLength: 50),
                         phone = c.String(maxLength: 15),
-                        sex = c.Boolean(nullable: false),
+                        sex = c.Int(nullable: false),
                         email = c.String(nullable: false),
                         password = c.String(nullable: false, maxLength: 50),
                         isAdmin = c.Boolean(nullable: false),
                         lastLogged = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "dbo.Appointment_WorkItem",
-                c => new
-                    {
-                        appointmentID = c.Int(nullable: false),
-                        workItemID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.appointmentID, t.workItemID });
             
             CreateTable(
                 "dbo.WorkItems",
@@ -56,14 +47,31 @@ namespace Peluqueria3.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
+            CreateTable(
+                "dbo.WorkItemAppointments",
+                c => new
+                    {
+                        AppointmentRefId = c.Int(nullable: false),
+                        WorkItemRefId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.AppointmentRefId, t.WorkItemRefId })
+                .ForeignKey("dbo.Appointments", t => t.AppointmentRefId, cascadeDelete: true)
+                .ForeignKey("dbo.WorkItems", t => t.WorkItemRefId, cascadeDelete: true)
+                .Index(t => t.AppointmentRefId)
+                .Index(t => t.WorkItemRefId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.WorkItemAppointments", "WorkItemRefId", "dbo.WorkItems");
+            DropForeignKey("dbo.WorkItemAppointments", "AppointmentRefId", "dbo.Appointments");
             DropForeignKey("dbo.Appointments", "userID", "dbo.Users");
+            DropIndex("dbo.WorkItemAppointments", new[] { "WorkItemRefId" });
+            DropIndex("dbo.WorkItemAppointments", new[] { "AppointmentRefId" });
             DropIndex("dbo.Appointments", new[] { "userID" });
+            DropTable("dbo.WorkItemAppointments");
             DropTable("dbo.WorkItems");
-            DropTable("dbo.Appointment_WorkItem");
             DropTable("dbo.Users");
             DropTable("dbo.Appointments");
         }

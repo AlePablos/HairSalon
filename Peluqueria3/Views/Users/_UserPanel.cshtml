@@ -1,0 +1,9 @@
+﻿<h1>Control Panel</h1>
+<ul>
+    <li>
+        @Html.ActionLink("Manage Appointments", "Index", "Appointments", routeValues: null, htmlAttributes: null)
+    </li>
+    <li>
+        @Html.ActionLink("Edit Profile", "Edit", "Users", routeValues: new { id = ViewBag.currentUser.ID }, htmlAttributes: null)
+    </li>
+</ul>
