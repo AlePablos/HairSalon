@@ -30,6 +30,9 @@
         <th>
             End Time
         </th>
+        <th>
+            Status
+        </th>
        
         <th></th>
     </tr>
@@ -50,9 +53,26 @@
                 @item.endTime.TimeOfDay
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @if (@item.status == Peluqueria3.Models.Status.Waiting)
+                {
+                    @: Waiting
+                }
+                else
+                {
+                    if (@item.status == Peluqueria3.Models.Status.InProgres)
+                    {
+                        @: In Progres
+                    }
+                    else
+                    {
+                        @: Finished
+                    }
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Appointments", routeValues: new { id = item.ID }, htmlAttributes: null) |
+                @Html.ActionLink("Details", "Details", "Appointments", routeValues: new { id = item.ID }, htmlAttributes: null) |
+                @Html.ActionLink("Remove", "Remove", "Appointments", routeValues: new { id = item.ID }, htmlAttributes: null)
             </td>
            
         </tr>

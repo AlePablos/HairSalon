@@ -64,6 +64,7 @@ namespace Peluqueria3.Controllers
                 }
 
                 appointment.endTime = appointment.startTime.AddMinutes(time);
+                appointment.status = Status.Waiting;
 
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
@@ -103,6 +104,26 @@ namespace Peluqueria3.Controllers
             }
             ViewBag.userID = new SelectList(db.Users, "ID", "firstName", appointment.userID);
             return View(appointment);
+        }
+
+        public ActionResult Update(int? id, Status status)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Appointment appointment = db.Appointments.Find(id);
+            if (appointment == null)
+            {
+                return HttpNotFound();
+            }
+
+            appointment.status = status;
+            db.Entry(appointment).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return this.Index();
         }
 
         // GET: Appointments/Delete/5

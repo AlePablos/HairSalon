@@ -24,9 +24,19 @@ namespace Peluqueria3.Models
         [DisplayName("User")]
         public int userID { get; set; }
 
+        [DisplayName("Status")]
+        public Status status { get; set; } 
+
         [DisplayName("Work Items")]
         public virtual ICollection<WorkItem> workItems { get; set; }
 
         public virtual User User { get; set; }
+    }
+
+    public enum Status
+    {
+        Waiting = 0,
+        InProgres = 1,
+        Finished = 2
     }
 }
